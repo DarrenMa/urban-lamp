@@ -9,4 +9,9 @@ globals:
   SharedArrayBuffer: readonly
 parserOptions:
   ecmaVersion: 2018
-rules: {}
+rules: {
+    indent: ["error", 4],
+    linebreak-style: ["error", "unix"],
+    no-cond-assign: ["error", "always"],
+    no-console: "off"
+}

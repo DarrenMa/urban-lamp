@@ -1,22 +1,20 @@
-/* eslint-disable no-console */
-/* eslint-disable no-param-reassign */
 function fib(n) {
-  // n under 2 is the base case, always 1
-  if (n <= 2) {
-    return 1;
-  }
-  return (fib(n - 1) + fib(n - 2));
+    // n under 2 is the base case, always 1
+    if (n <= 2) {
+        return 1;
+    }
+    return (fib(n - 1) + fib(n - 2));
 }
 
 function fib2(n, memo = {}) {
-  if (n in memo) {
+    if (n in memo) {
+        return memo[n];
+    }
+    if (n <= 2) {
+        return 1;
+    }
+    memo[n] = fib2(n - 1, memo) + fib2(n - 2, memo);
     return memo[n];
-  }
-  if (n <= 2) {
-    return 1;
-  }
-  memo[n] = fib2(n - 1, memo) + fib2(n - 2, memo);
-  return memo[n];
 }
 
 console.log('Recursion solution');
