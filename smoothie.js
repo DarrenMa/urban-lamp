@@ -1,3 +1,8 @@
+/* eslint-disable no-promise-executor-return */
+/* eslint-disable no-restricted-syntax */
+
+// practice JS event loop
+//
 function delay(time) {
     return new Promise((resolve) => setTimeout(resolve, time));
 }
@@ -10,6 +15,7 @@ const getFruit = async (name) => {
     await delay(1000);
     return fruits[name];
 };
+// make smoothie waiting for each fruit
 const makeSmoothie = async () => {
     console.time('makeSmoothie');
     const a = await getFruit('pineapple');
@@ -17,6 +23,7 @@ const makeSmoothie = async () => {
     console.timeEnd('makeSmoothie');
     return [a, b];
 };
+// make smoothie getting all fruits concurrently (preferred)
 const makeSmoothieConcurrently = async () => {
     console.time('makeSmoothieConcurrently');
     const a = getFruit('pineapple');
@@ -25,7 +32,23 @@ const makeSmoothieConcurrently = async () => {
     console.timeEnd('makeSmoothieConcurrently');
     return smoothie;
 };
+// using map on promises (getting all concurrently)
+// resolving in the for await
+const fruitLoop = async () => {
+    console.time('fruitLoop');
+    const fruits = [
+        'pineapple',
+        'peach',
+        'strawberry',
+    ];
+    const smoothie = fruits.map((f) => getFruit(f));
+    for await (const emoji of smoothie) {
+        console.log(emoji);
+    }
+    console.timeEnd('fruitLoop');
+};
 (async () => {
     console.log(await makeSmoothie());
     console.log(await makeSmoothieConcurrently());
+    await fruitLoop();
 })();
