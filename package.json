@@ -6,6 +6,10 @@
     "npm": ">=8.0.0",
     "node": ">=17.0.0"
   },
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DarrenMa/urban-lamp.git"
