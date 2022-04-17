@@ -1,4 +1,6 @@
 const fiboncacci = require('./fiboncacci');
+const gridTraveller = require('./grid-traveller');
+const gridtraveller = require('./grid-traveller');
 
 (async () => {
     console.log('====== fiboncacci ======');
@@ -23,4 +25,28 @@ const fiboncacci = require('./fiboncacci');
     // console.log(`fib for 50: ${fiboncacci.fib2(50)}`);
     console.timeEnd('fib2');
     console.log('====== end fiboncacci ======');
+    console.log('====== grid traveller ======');
+    console.log('Recursion solution');
+    console.time('travel');
+    console.log(`Combinations for a grid of (1, 1): ${gridTraveller.travel(1, 1)}`);
+    console.log(`Combinations for a grid of (2, 2): ${gridTraveller.travel(2, 2)}`);
+    console.log(`Combinations for a grid of (3, 3): ${gridTraveller.travel(3, 3)}`);
+    console.log(`Combinations for a grid of (4, 4): ${gridTraveller.travel(4, 4)}`);
+    console.log(`Combinations for a grid of (5, 5): ${gridTraveller.travel(5, 5)}`);
+    console.log(`Combinations for a grid of (9, 12): ${gridTraveller.travel(9, 12)}`);
+    console.log(`Combinations for a grid of (15, 15): ${gridTraveller.travel(15, 15)}`);
+    console.timeEnd('travel');
+
+    console.log('Memoization solution');
+    console.log('========================');
+    console.time('travel2');
+    console.log(`Combinations for a grid of (1, 1): ${gridTraveller.travel2(1, 1)}`);
+    console.log(`Combinations for a grid of (2, 2): ${gridTraveller.travel2(2, 2)}`);
+    console.log(`Combinations for a grid of (3, 3): ${gridTraveller.travel2(3, 3)}`);
+    console.log(`Combinations for a grid of (4, 4): ${gridTraveller.travel2(4, 4)}`);
+    console.log(`Combinations for a grid of (5, 5): ${gridTraveller.travel2(5, 5)}`);
+    console.log(`Combinations for a grid of (9, 12): ${gridTraveller.travel2(9, 12)}`);
+    console.log(`Combinations for a grid of (15, 15): ${gridTraveller.travel2(15, 15)}`);
+    console.timeEnd('travel2');
+    console.log('====== end grid traveller ======');
 })();
