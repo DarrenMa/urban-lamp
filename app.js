@@ -1,52 +1,75 @@
-const fiboncacci = require('./fiboncacci');
-const gridTraveller = require('./grid-traveller');
-const gridtraveller = require('./grid-traveller');
+const fiboncacci = require('./chapter-1/fiboncacci');
+const gridTraveller = require('./chapter-2/grid-traveller');
+const targetSum = require('./chapter-3/targetsum');
 
 (async () => {
     console.log('====== fiboncacci ======');
     console.log('Recursion solution');
+    console.log('========================');
     console.time('fib');
-    console.log(`fib for 7: ${fiboncacci.fib(7)}`);
-    console.log(`fib for 8: ${fiboncacci.fib(8)}`);
-    console.log(`fib for 9: ${fiboncacci.fib(9)}`);
-    console.log(`fib for 10: ${fiboncacci.fib(10)}`);
     console.log(`fib for 35: ${fiboncacci.fib(35)}`);
-    // console.log(`fib for 50: ${fiboncacci.fib(50)}`);
     console.timeEnd('fib');
 
     console.log('Memoization solution');
     console.log('========================');
     console.time('fib2');
-    console.log(`fib for 7: ${fiboncacci.fib2(7)}`);
-    console.log(`fib for 8: ${fiboncacci.fib2(8)}`);
-    console.log(`fib for 9: ${fiboncacci.fib2(9)}`);
-    console.log(`fib for 10: ${fiboncacci.fib2(10)}`);
     console.log(`fib for 35: ${fiboncacci.fib2(35)}`);
-    // console.log(`fib for 50: ${fiboncacci.fib2(50)}`);
     console.timeEnd('fib2');
-    console.log('====== end fiboncacci ======');
     console.log('====== grid traveller ======');
     console.log('Recursion solution');
+    console.log('========================');
     console.time('travel');
-    console.log(`Combinations for a grid of (1, 1): ${gridTraveller.travel(1, 1)}`);
-    console.log(`Combinations for a grid of (2, 2): ${gridTraveller.travel(2, 2)}`);
-    console.log(`Combinations for a grid of (3, 3): ${gridTraveller.travel(3, 3)}`);
-    console.log(`Combinations for a grid of (4, 4): ${gridTraveller.travel(4, 4)}`);
-    console.log(`Combinations for a grid of (5, 5): ${gridTraveller.travel(5, 5)}`);
-    console.log(`Combinations for a grid of (9, 12): ${gridTraveller.travel(9, 12)}`);
     console.log(`Combinations for a grid of (15, 15): ${gridTraveller.travel(15, 15)}`);
     console.timeEnd('travel');
 
     console.log('Memoization solution');
     console.log('========================');
     console.time('travel2');
-    console.log(`Combinations for a grid of (1, 1): ${gridTraveller.travel2(1, 1)}`);
-    console.log(`Combinations for a grid of (2, 2): ${gridTraveller.travel2(2, 2)}`);
-    console.log(`Combinations for a grid of (3, 3): ${gridTraveller.travel2(3, 3)}`);
-    console.log(`Combinations for a grid of (4, 4): ${gridTraveller.travel2(4, 4)}`);
-    console.log(`Combinations for a grid of (5, 5): ${gridTraveller.travel2(5, 5)}`);
-    console.log(`Combinations for a grid of (9, 12): ${gridTraveller.travel2(9, 12)}`);
     console.log(`Combinations for a grid of (15, 15): ${gridTraveller.travel2(15, 15)}`);
     console.timeEnd('travel2');
-    console.log('====== end grid traveller ======');
+
+    console.log('====== canSum ======');
+    console.log('Recursion solution');
+    console.log('========================');
+    console.time('canSum');
+    console.log(`${targetSum.canSum(170, [7, 14])}`);
+    console.timeEnd('canSum');
+
+    console.log('====== canSum2 ======');
+    console.log('Memoization solution');
+    console.log('========================');
+    console.time('canSum2');
+    console.log(`${targetSum.canSum2(170, [7, 14])}`);
+    console.timeEnd('canSum2');
+
+    console.log('====== howSum ======');
+    console.log('Recursion solution');
+    console.log('========================');
+    console.time('howSum');
+    console.log(`${targetSum.howSum(8, [2, 3, 5])}`);
+    console.log(`${targetSum.howSum(300, [7, 14])}`);
+    console.timeEnd('howSum');
+
+    console.log('====== howSum2 ======');
+    console.log('Memoization solution');
+    console.log('========================');
+    console.time('howSum2');
+    console.log(`${targetSum.howSum2(300, [7, 14])}`);
+    console.timeEnd('howSum2');
+
+    console.log('====== bestSum ======');
+    console.log('Recursion solution');
+    console.log('========================');
+    console.time('bestSum');
+    console.log(`${targetSum.bestSum(8, [2, 3, 5])}`);
+    console.log(`${targetSum.bestSum(50, [2, 5, 25])}`);
+    console.timeEnd('bestSum');
+
+    console.log('====== bestSum2 ======');
+    console.log('Memoization solution');
+    console.log('========================');
+    console.time('bestSum2');
+    console.log(`${targetSum.bestSum2(8, [2, 3, 5])}`);
+    console.log(`${targetSum.bestSum2(50, [2, 5, 25])}`);
+    console.timeEnd('bestSum2');
 })();

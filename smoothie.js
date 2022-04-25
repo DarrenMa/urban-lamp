@@ -51,4 +51,19 @@ const fruitLoop = async () => {
     console.log(await makeSmoothie());
     console.log(await makeSmoothieConcurrently());
     await fruitLoop();
+
+    const fruits = [
+        'pineapple',
+        'peach',
+        'strawberry',
+    ];
+    // strings are immutable
+    fruits.forEach((f) => {
+        console.log(fruits);
+        console.log(f);
+        const upperFruit = f.toUpperCase();
+        console.log(f);
+        console.log(upperFruit);
+        console.log(fruits);
+    });
 })();
